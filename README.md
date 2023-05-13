@@ -11,7 +11,7 @@ To construct the SCM for this paper, the *synth* package in Stata developed by A
 - This paper aims to measure the post-legalization impact on the prevalence of cannabis use disorder among Uruguayan consumers by constructing a synthetic control method covering data from 1990 to 2017 through 19 Latin American countries. 
 - The findings suggest that the prevalence of cannabis use disorder decreased in Uruguay after the legalization. However, these results are not unique since placebo tests indicate that other countries would have experienced similar outcomes. 
 - Thus, it cannot be confirmed that the decreasing effect in the prevalence of cannabis disorders is only due to the legalization in 2013. 
-- The added value of this paper is to add empirical econometric research to public health studies in Latin America.
+- The added value of this paper is to add empirical econometric research to public health studies in Latin America. For further analysis and discussion, the full printed version of this project is available upon request.
 
 ### Motivation
 - Abuse of illegal substances is a global struggle that significantly impacts individuals and society. 
@@ -89,5 +89,9 @@ synth PrevalenceCannabisShare // depvar
 
 Table below shows the relative contribution of each of the 18 countries and their respective weights to the synthetic control of Uruguay. The synthetic version is a weighted average of mainly Panama and Suriname, followed by Belize, Chile and Colombia, with weights in decreasing order.
 
-![Table 1: Synthetic control weights for Uruguay.]()
+![Table 1: Synthetic control weights for Uruguay.](https://github.com/cvas91/CannabisLegalization/blob/main/Screenshot%202023-05-13%20185145.png)
+
+Figure below displays the results of the synthetic control method examining the effects of legalizing cannabis in Uruguay on the prevalence of cannabis disorder. Synthetic Uruguay, composed of the five countries from the donor pool indicated previously, traced well the trend beside actual Uruguay’s outcome throughout the pre-legalization period (1990 – 2012). However, after the policy was enacted (2013), the actual prevalence of cannabis use disorder fell remarkably below 0.47%, whereas the synthetic estimates that the prevalence will increase at pre-legalization levels above 0.48%. 
+
+![Figure 2: Synthetic control trends on the prevalence of cannabis disorder.]()
 
