@@ -24,6 +24,8 @@ Panel data across 27 years from 1990 to 2017 for a total sample of 19 Latin Amer
 
 The descriptive statistics of the variables are summarized as follows.
 
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+Screenshot 2023-05-13 172804.png
 **Synthetic Control Method (SCM)**
 
 Introduced by Abadie et al. (2010) when developing a new statistical approach to evaluate an intervention's impact in comparative case studies. This method involves constructing a weighted combination of control groups to which the treatment group is compared. The comparison is then used to estimate the counterfactual outcome for the treatment group if it had not received the treatment.
