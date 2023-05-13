@@ -2,10 +2,6 @@
 
  Author: [Camilo Vargas](https://www.github.com/cvas91)
 
-### Licence and Acknowledgements
-
-To construct the SCM for this paper, the *synth* package in Stata developed by Abadie et al. (2011) was implemented following the guidelines of Cunningham (2021).
-
 ### Abstract:
 - Uruguay was the first country to legalize cannabis for recreational consumption in 2013. Its effects have been a public health concern in the last decade across the continent as more countries examine similar strategies. 
 - This paper aims to measure the post-legalization impact on the prevalence of cannabis use disorder among Uruguayan consumers by constructing a synthetic control method covering data from 1990 to 2017 through 19 Latin American countries. 
@@ -15,7 +11,7 @@ To construct the SCM for this paper, the *synth* package in Stata developed by A
 
 ### Motivation
 - Abuse of illegal substances is a global struggle that significantly impacts individuals and society. 
-- Roth et al. (2018) reported that worldwide smoking, alcohol, and illicit drug use kill directly and indirectly 11.8 million people annually, exceeding the total number of deaths caused by all types of cancer. 
+- [Roth et al. (2018)](#References) reported that worldwide smoking, alcohol, and illicit drug use kill directly and indirectly 11.8 million people annually, exceeding the total number of deaths caused by all types of cancer. 
 - Direct deaths from alcohol and illicit drug use disorders estimate that over 350,000 people die each year globally, with over half of these deaths occurring in males younger than 50. 
 - Substance abuse also contributes to the global disease burden, with 1.5% resulting from alcohol and illicit drug addiction; in some countries like the U.S., it is over 5%. Additionally, over 2% of the world population has an alcohol or illicit drug addiction.
 
@@ -167,6 +163,24 @@ matlist country`i', names(row)
 
 ![Table 3: Pre - Post expansion RMSPE ratio.](https://github.com/cvas91/CannabisLegalization/blob/main/Screenshot%202023-05-13%20194349.png)
 
-The placebo gaps across 18 control countries and Uruguay are illustrated below, assuming they were exposed to the same legalization of cannabis in 2013.
+The placebo gaps across 18 control countries and Uruguay are illustrated below, assuming they were exposed to the same legalization of cannabis in 2013. Agreeing that there are no meaningful differences in the reported prevalence of cannabis use disorders post-legalization in Uruguay compared to the estimates from placebo tests, it could be claimed that the legalization in Uruguay had no significant effect according to this test.
 
-![Figure 4: Gaps for the relevant placebos and Uruguay]()
+![Figure 4: Gaps for the relevant placebos and Uruguay](https://github.com/cvas91/CannabisLegalization/blob/main/Figure4.jpg)
+
+## Conclusions
+
+This study found that legalizing cannabis in Uruguay was not associated with an increase in the prevalence of cannabis use disorders among its consumers, as was expected. In contrast, evidence suggests that the actual outcome decreased after the legalization period in 2013. However, this result is insignificant since other countries would have experienced the same results if exposed to the treatment. As such, it is unlikely that cannabis legalization alone was the cause of the reduction in the prevalence of cannabis use disorders in Uruguay.
+
+<a id="References"></a>
+## References
+
+* Abadie, Diamond, & Hainmueller. (2010). Synthetic Control Methods for Comparative Case Studies: Estimating the Effect of California’s Tobacco Control Program. Journal of the American Statistical Association.
+* Abadie, A., Diamond, A., Hainmueller, J., (2011). "SYNTH: Stata module to implement Synthetic Control Methods for Comparative Case Studies," Statistical Software Components S457334, Boston College Department of Economics revised 09 May 2020.
+* Abadie, Diamond, & Hainmueller. (2015). Comparative politics and the synthetic control method. American Journal of Political Science, 59(2), 495-510.
+* Abadie, A. (2021). Using synthetic controls: Feasibility, data requirements, and methodological aspects. Journal of Economic Literature, 59(2), 391–425.
+* Cunningham, S. (2021). Causal inference: The mixtape. Yale university press.
+* Roth, G. A., Abate, D., Abate, K. H., Abay, S. M., Abbafati, C., Abbasi, N., … & Abdollahpour, I. (2018). Global, regional, and national age-sex-specific mortality for 282 causes of death in 195 countries and territories, 1980–2017: a systematic analysis for the Global Burden of Disease Study 2017. The Lancet, 392(10159), 1736-1788.
+
+### Licence and Acknowledgements
+
+To construct the SCM for this paper, the *synth* package in Stata developed by Abadie et al. (2011) was implemented following the guidelines of Cunningham (2021).
