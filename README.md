@@ -1,6 +1,6 @@
 # Prevalence of Cannabis Use Disorder Post Legalization - Uruguay Case Study
 
- Author: [Camilo Vargas](https://www.github.com/cvas91)
+Author: [Camilo Vargas](https://www.github.com/cvas91)
 
 ### Abstract:
 - Uruguay was the first country to legalize cannabis for recreational consumption in 2013. Its effects have been a public health concern in the last decade across the continent as more countries examine similar strategies. 
@@ -28,7 +28,7 @@ The descriptive statistics of the variables are summarized as follows.
 
 ## Synthetic Control Method (SCM)
 
-This paper uses a counterfactual analytical approach to evaluate what would have been the outcome in the prevalence of cannabis use disorders if Uruguay had not legalized cannabis for recreational use in 2013 by implementing the synthetic control method (SCM) and following the guidelines from Abadie (2021), creating a combination of weights during the pre-legalization period from 18 non-treated Latin American countries, which are considered the donor pool or the control group because these countries did not approve of cannabis legalization during the period of study. This weighted combination, the synthetic control, closely estimates a counterfactual scenario without legalization. Then the synthetic trend is forecasted in the post-legalization period to be compared with treated Uruguay.
+This paper uses a counterfactual analytical approach to evaluate what would have been the outcome in the prevalence of cannabis use disorders if Uruguay had not legalized cannabis for recreational use in 2013 by implementing the synthetic control method (SCM) and following the guidelines from [Abadie (2021)](#References), creating a combination of weights during the pre-legalization period from 18 non-treated Latin American countries, which are considered the donor pool or the control group because these countries did not approve of cannabis legalization during the period of study. This weighted combination, the synthetic control, closely estimates a counterfactual scenario without legalization. Then the synthetic trend is forecasted in the post-legalization period to be compared with treated Uruguay.
 
 ### Results
 
@@ -183,4 +183,4 @@ This study found that legalizing cannabis in Uruguay was not associated with an 
 
 ### Licence and Acknowledgements
 
-To construct the SCM for this paper, the *synth* package in Stata developed by Abadie et al. (2011) was implemented following the guidelines of Cunningham (2021).
+To construct the SCM for this paper, the *synth* package in Stata developed by [Abadie et al. (2011)](#References) was implemented following the guidelines of [Cunningham (2021)](#References).
