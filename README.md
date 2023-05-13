@@ -138,7 +138,35 @@ synth PrevalenceCannabisShare
 ![Table 2: Predictors balance pre and post-treatment.](https://github.com/cvas91/CannabisLegalization/blob/main/Screenshot%202023-05-13%20192638.png)
 
 Finally, to test whether the cannabis legalization policy had a statistically significant effect on Uruguay’s consumers with this drug disorder, several placebo estimates will be performed by assigning the same treatment period to all 18 potential donors, recalculating the model’s coefficients, and collecting them into a distribution which is then used for the analysis.
+
 Table below displays a set of RMSPE values for the pre and post-legalization period across all countries as a test statistic used for inference. From there, it can be argued that Peru and Costa Rica have statistically significant p-values at a 10% confidence level, implying that Uruguay’s legalization effect was not unique.
 
-![Table 3: Pre - Post expansion RMSPE ratio.]()
+```stata
+* Inference 2: Estimate the pre- and post-RMSPE and calculate the ratio of post-pre RMSPE
 
+foreach i of global Countries {
+use ${RAW}synth_gap_`i', clear
+gen gap3 = gap`i'* gap`i'
+egen postmean = mean(gap3) if year > 2013
+egen premean = mean(gap3) if year <= 2013
+gen rmspe = sqrt(premean) if year <= 2013
+replace rmspe = sqrt(postmean) if year > 2013
+gen ratio = rmspe/rmspe[_n-1] if year == 2014
+gen rmspe_post = sqrt(postmean) if year > 2013
+gen rmspe_pre = rmspe[_n-1] if year == 2014
+mkmat rmspe_pre rmspe_post ratio if year == 2014, matrix (country`i')
+}
+
+* Show pre/post expansion RMSPE ratio for all countries
+* Table 3: Pre - Post expansion RMSPE ratio.
+foreach i of global Countries {
+matrix rownames country`i' = `i'
+matlist country`i', names(row)
+}
+```
+
+![Table 3: Pre - Post expansion RMSPE ratio.](https://github.com/cvas91/CannabisLegalization/blob/main/Screenshot%202023-05-13%20194349.png)
+
+The placebo gaps across 18 control countries and Uruguay are illustrated below, assuming they were exposed to the same legalization of cannabis in 2013.
+
+![Figure 4: Gaps for the relevant placebos and Uruguay]()
