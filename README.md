@@ -24,8 +24,19 @@ Panel data across 27 years from 1990 to 2017 for a total sample of 19 Latin Amer
 
 The descriptive statistics of the variables are summarized as follows.
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-Screenshot 2023-05-13 172804.png
-**Synthetic Control Method (SCM)**
+![Table A1: Descriptive Statistics](https://github.com/cvas91/CannabisLegalization/blob/main/Screenshot%202023-05-13%20172804.png)
 
-Introduced by Abadie et al. (2010) when developing a new statistical approach to evaluate an intervention's impact in comparative case studies. This method involves constructing a weighted combination of control groups to which the treatment group is compared. The comparison is then used to estimate the counterfactual outcome for the treatment group if it had not received the treatment.
+### Synthetic Control Method (SCM)
+
+This paper uses a counterfactual analytical approach to evaluate what would have been the outcome in the prevalence of cannabis use disorders if Uruguay had not legalized cannabis for recreational use in 2013 by implementing the synthetic control method (SCM) and following the guidelines from Abadie (2021), creating a combination of weights during the pre-legalization period from 18 non-treated Latin American countries, which are considered the donor pool or the control group because these countries did not approve of cannabis legalization during the period of study. This weighted combination, the synthetic control, closely estimates a counterfactual scenario without legalization. Then the synthetic trend is forecasted in the post-legalization period to be compared with treated Uruguay.
+
+In the SCM, the control group and the experimental unit are equally balanced pre-intervention on several predictors that could predict the dependent variable, creating a quasi-experimental setting. In this current study, the period prior to intervention was from 1990 to 2012, and the posterior intervention was from 2013 to 2017. The predictors are the prevalence use disorder of illegal substances like amphetamine, cocaine, opioid, alcohol and other public health indicators described in the previous section of the text. The primary outcome of concern has been stated to be the prevalence of cannabis use disorder.
+
+**Licence and Acknowledgements**
+
+To construct the SCM for this paper, the *synth* package in Stata developed by Abadie et al. (2011) was implemented following the guidelines of Cunningham (2021).
+
+## Results
+Figure 1 illustrates the performance of the prevalence of drug use disorders detailed by substances in some of the most populous Latin American countries measured as a per capita share of their population. From there, it can be assumed that Uruguay’s prevalence of cannabis disorder has remained constant at 0.47%; on average, 15823 people reported this condition annually. The figure also highlights that cannabis disorders are the most prevalent among the observed countries, except in Argentina, where the most prevalent disorder is due to cocaine users.
+
+![Figure 1: Prevalence of drug use disorders by country]()
