@@ -135,4 +135,10 @@ synth PrevalenceCannabisShare
 #delimit cr
 ```
 
-![Table 2: Predictors balance pre and post-treatment.]()
+![Table 2: Predictors balance pre and post-treatment.](https://github.com/cvas91/CannabisLegalization/blob/main/Screenshot%202023-05-13%20192638.png)
+
+Finally, to test whether the cannabis legalization policy had a statistically significant effect on Uruguay’s consumers with this drug disorder, several placebo estimates will be performed by assigning the same treatment period to all 18 potential donors, recalculating the model’s coefficients, and collecting them into a distribution which is then used for the analysis.
+Table below displays a set of RMSPE values for the pre and post-legalization period across all countries as a test statistic used for inference. From there, it can be argued that Peru and Costa Rica have statistically significant p-values at a 10% confidence level, implying that Uruguay’s legalization effect was not unique.
+
+![Table 3: Pre - Post expansion RMSPE ratio.]()
+
