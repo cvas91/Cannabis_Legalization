@@ -1,5 +1,4 @@
-# Prevalence of Cannabis Use Disorder Post Legalization 
-# Uruguay Case Study
+# Prevalence of Cannabis Use Disorder Post Legalization - Uruguay Case Study
 
  Author: [Camilo Vargas](https://www.github.com/cvas91)
 
@@ -39,5 +38,22 @@ In the SCM, the control group and the experimental unit are equally balanced pre
 
 ### Results
 Figure below illustrates the prevalence of drug use disorders detailed by substances in some of the most populous Latin American countries measured as a per capita share of their population. From there, it can be assumed that Uruguay’s prevalence of cannabis disorder has remained constant at 0.47%; on average, 15823 people reported this condition annually. The figure also highlights that cannabis disorders are the most prevalent among the observed countries.
+
+```stata
+#delimit;
+use ${RAW}DataCannabisLatam.dta, clear ;
+keep if Code == "URY" | Code == "ARG" | Code == "COL" | Code == "CHL" | Code == "BRA" 	| Code == "MEX" ;
+twoway line 
+	PrevalenceCannabisShare PrevalenceCocaineShare PrevalenceAmphetamineShare PrevalenceOpioidShare PrevalenceOtherDrugShare PrevalenceAlcoholusedisorde 
+	Year ,
+	sort lwidth(thick)
+	by(Entity) ///, legend(pos(6)) title(Prevalence of use disorders by substance)
+	scheme(s1color) ytitle(Share of Pop. (%)) 
+	legend(off rows(2) forces size(small)
+		lab(1 "Cannabis") lab(2 "Cocaine") lab(3 "Amphetamine") lab(4 "Opioid") lab(5 "Other Drug") lab(6 "Alcohol")) 
+	xlabel(, labsize(small) )
+	; 
+#delimit cr
+```
 
 ![Figure 1: Prevalence of drug use disorders by country](https://github.com/cvas91/CannabisLegalization/blob/main/Figure1.jpg)
