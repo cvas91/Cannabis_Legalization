@@ -2,7 +2,7 @@
 
  Author: [Camilo Vargas](https://www.github.com/cvas91)
 
-**Licence and Acknowledgements**
+### Licence and Acknowledgements
 
 To construct the SCM for this paper, the *synth* package in Stata developed by Abadie et al. (2011) was implemented following the guidelines of Cunningham (2021).
 
@@ -103,7 +103,36 @@ use ${RAW}synth_results_data.dta, clear
 drop _Co_Number _W_Weight // Drops the columns that store the donor state weights
 gen GapUry = _Y_treated - _Y_synthetic // The counterfactual is _Y_synthetic
 
-twoway line (GapUry _time), scheme(s1color) lcolor(green) lwidth(thick) xline(2013) xmlabel(2013 "Legalization") yline(0) xtitle(Year) ytitle(Gap in Prevalence Cannabis Prediction Error) legend(on) // title("Difference between treatment and counterfactual") 
+twoway line (GapUry _time), scheme(s1color) lcolor(green) lwidth(thick) xline(2013) xmlabel(2013 "Legalization") yline(0) 
+xtitle(Year) ytitle(Gap in Prevalence Cannabis Prediction Error) legend(on) // title("Difference between treatment and counterfactual") 
 ```
 
-![Figure 3: Difference between Uruguay and synthetic.]()
+![Figure 3: Difference between Uruguay and synthetic.](https://github.com/cvas91/CannabisLegalization/blob/main/Figure3.jpg)
+
+To measure the change in the outcome of interest, i.e., the prevalence of cannabis disorder, it can be inferred by comparing the pre and post-treatment performance of the predictors balance with that of the synthetic control. Table below summarizes the considered predictors' results, which can be interpreted as the treatment effects.
+
+```stata
+* Predictors – Pre Treatment "2012" are taken from previous steps.
+
+use ${RAW}DataCannabisLatam.dta, clear 
+tsset CodeCountry Year 
+
+* Predictors – Post Treatment. "2017"
+#delimit;
+synth PrevalenceCannabisShare
+	PrevalenceCannabisShare(2017) PrevalenceOtherDrugShare(2017)
+	PrevalenceAmphetamineShare(2017) PrevalenceCocaineShare(2017) 
+	PrevalenceOpioidShare(2017) PrevalenceAlcoholusedisorde(2017) 
+	Currenthealthexpenditureof DomGenGovHeaExpGDP(2017) 
+	Domesticprivatehealthexpendit(2017) Outofpocketexpenditureof(2017)
+	lnGDPpercapita PopulationtotalSPPOPTOTL
+	, trunit(858) // trunit(858) = Uruguay
+	trperiod(2013) unitnames(Entity)
+	mspeperiod(1990(1)2015)	resultsperiod(1990(1)2017) //
+	// fig
+	// nested keep(${RAW}synth_results_data.dta) replace
+;
+#delimit cr
+```
+
+![Table 2: Predictors balance pre and post-treatment.]()
