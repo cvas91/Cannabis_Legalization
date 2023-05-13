@@ -47,7 +47,7 @@ twoway line
 	PrevalenceCannabisShare PrevalenceCocaineShare PrevalenceAmphetamineShare PrevalenceOpioidShare PrevalenceOtherDrugShare PrevalenceAlcoholusedisorde 
 	Year ,
 	sort lwidth(thick)
-	by(Entity) ///, legend(pos(6)) title(Prevalence of use disorders by substance)
+	by(Entity) 
 	scheme(s1color) ytitle(Share of Pop. (%)) 
 	legend(off rows(2) forces size(small)
 		lab(1 "Cannabis") lab(2 "Cocaine") lab(3 "Amphetamine") lab(4 "Opioid") lab(5 "Other Drug") lab(6 "Alcohol")) 
@@ -57,3 +57,37 @@ twoway line
 ```
 
 ![Figure 1: Prevalence of drug use disorders by country](https://github.com/cvas91/CannabisLegalization/blob/main/Figure1.jpg)
+
+```stata
+* Install the synthetic control method package:
+ssc install synth, all
+*net install synth_runner, from(https://raw.github.com/bquistorff/synth_runner/master/) replace
+
+* Set the data as time series, using tsset 
+use ${RAW}DataCannabisLatam.dta, clear 
+tsset CodeCountry Year 
+
+* Perform synt control method:
+
+#delimit;
+synth PrevalenceCannabisShare // depvar
+	PrevalenceCannabisShare(1990) PrevalenceCannabisShare(2000)
+	PrevalenceCannabisShare(2012) PrevalenceOtherDrugShare(2012)
+	PrevalenceAmphetamineShare(2012) PrevalenceCocaineShare(2012)
+	PrevalenceOpioidShare(2012) PrevalenceAlcoholusedisorde(2012) 
+	Currenthealthexpenditureof DomGenGovHeaExpGDP(2012) 
+	Domesticprivatehealthexpendit(2012) Outofpocketexpenditureof(2012)
+	lnGDPpercapita PopulationtotalSPPOPTOTL , // predictors
+	trunit(858) // trunit(858) = Uruguay
+	trperiod(2013) unitnames(Entity) 
+	mspeperiod(1990(1)2013)	resultsperiod(1990(1)2017)
+	fig 
+	nested keep(${RAW}synth_results_data.dta) replace
+;
+#delimit cr
+```
+
+Table below shows the relative contribution of each of the 18 countries and their respective weights to the synthetic control of Uruguay. The synthetic version is a weighted average of mainly Panama and Suriname, followed by Belize, Chile and Colombia, with weights in decreasing order.
+
+![Table 1: Synthetic control weights for Uruguay.]()
+
