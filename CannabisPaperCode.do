@@ -2,9 +2,6 @@
 Prevalence of Cannabis Use Disorder Post Legalization – Uruguay Case Study
 
 Name: Camilo Andres Vargas Silva					
-Banner ID: B00926233
-Course: ECON 5525 - Applied Econometrics
-Program: MDE
 */
 
 * 1) Set up Global working directories:
@@ -303,8 +300,4 @@ twoway
 *graph save Grapgh ${RAW}All_without_outliers.ghp, replace
 
 
-/*	Prof. Casey: 
-Thanks for reading this far. 
-I've problably made some mistakes but I tried my best.
-This course was really usefull :)
-*/							
+							
