@@ -24,7 +24,7 @@ Panel data across 27 years from 1990 to 2017 for a total sample of 19 Latin Amer
 
 The descriptive statistics of the variables are summarized as follows.
 
-![Table A1: Descriptive Statistics](https://github.com/cvas91/CannabisLegalization/blob/main/Screenshot%202023-05-13%20172804.png)
+![Table A1: Descriptive Statistics](https://github.com/cvas91/CannabisLegalization/blob/main/Figures/Screenshot%202023-05-13%20172804.png)
 
 ## Synthetic Control Method (SCM)
 
@@ -51,7 +51,7 @@ twoway line
 #delimit cr
 ```
 
-![Figure 1: Prevalence of drug use disorders by country](https://github.com/cvas91/CannabisLegalization/blob/main/Figure1.jpg)
+![Figure 1: Prevalence of drug use disorders by country](https://github.com/cvas91/CannabisLegalization/blob/main/Figures/Figure1.jpg)
 
 In the SCM, the control group and the experimental unit are equally balanced pre-intervention on several predictors that could predict the dependent variable, creating a quasi-experimental setting. In this current study, the period before intervention was from 1990 to 2012, and the posterior intervention was from 2013 to 2017. The predictors are the prevalence use disorder of illegal substances like amphetamine, cocaine, opioid, alcohol and other public health indicators described in the previous section of the text. The primary outcome of concern has been stated to be the prevalence of cannabis use disorder.
 
@@ -86,11 +86,11 @@ synth PrevalenceCannabisShare // depvar
 
 The table below shows the relative contribution of each of the 18 countries and their respective weights to the synthetic control of Uruguay. The synthetic version is a weighted average of mainly Panama and Suriname, followed by Belize, Chile and Colombia, with weights in decreasing order.
 
-![Table 1: Synthetic control weights for Uruguay.](https://github.com/cvas91/CannabisLegalization/blob/main/Screenshot%202023-05-13%20185145.png)
+![Table 1: Synthetic control weights for Uruguay.](https://github.com/cvas91/CannabisLegalization/blob/main/Figures/Screenshot%202023-05-13%20185145.png)
 
 The figure below displays the results of the synthetic control method examining the effects of legalizing cannabis in Uruguay on the prevalence of cannabis disorder. Synthetic Uruguay, composed of the five countries from the donor pool indicated previously, traced well the trend beside actual Uruguay’s outcome throughout the pre-legalization period (1990 – 2012). However, after the policy was enacted (2013), the true prevalence of cannabis use disorder fell remarkably below 0.47%, whereas the synthetic estimates that the prevalence will increase at pre-legalization levels above 0.48%. 
 
-![Figure 2: Synthetic control trends on the prevalence of cannabis disorder.](https://github.com/cvas91/CannabisLegalization/blob/main/Screenshot%202023-05-13%20190057.png)
+![Figure 2: Synthetic control trends on the prevalence of cannabis disorder.](https://github.com/cvas91/CannabisLegalization/blob/main/Figures/Screenshot%202023-05-13%20190057.png)
 
 From the previous results, the difference between treatment and counterfactual can be computed as shown next. Therefore, the evidence suggests that the treatment effect post-legalization of cannabis in Uruguay caused a decrease in the share of the population that reported the prevalence of cannabis disorder compared to the synthetic control group.
 
@@ -103,7 +103,7 @@ twoway line (GapUry _time), scheme(s1color) lcolor(green) lwidth(thick) xline(20
 xtitle(Year) ytitle(Gap in Prevalence Cannabis Prediction Error) legend(on) // title("Difference between treatment and counterfactual") 
 ```
 
-![Figure 3: Difference between Uruguay and synthetic.](https://github.com/cvas91/CannabisLegalization/blob/main/Figure3.jpg)
+![Figure 3: Difference between Uruguay and synthetic.](https://github.com/cvas91/CannabisLegalization/blob/main/Figures/Figure3.jpg)
 
 To measure the change in the outcome of interest, i.e., the prevalence of cannabis disorder, it can be inferred by comparing the pre and post-treatment performance of the predictors balance with that of the synthetic control. Table below summarizes the considered predictors' results, which can be interpreted as the treatment effects.
 
@@ -131,7 +131,7 @@ synth PrevalenceCannabisShare
 #delimit cr
 ```
 
-![Table 2: Predictors balance pre and post-treatment.](https://github.com/cvas91/CannabisLegalization/blob/main/Screenshot%202023-05-13%20192638.png)
+![Table 2: Predictors balance pre and post-treatment.](https://github.com/cvas91/CannabisLegalization/blob/main/Figures/Screenshot%202023-05-13%20192638.png)
 
 Finally, to test whether the cannabis legalization policy had a statistically significant effect on Uruguay’s consumers with this drug disorder, several placebo estimates will be performed by assigning the same treatment period to all 18 potential donors, recalculating the model’s coefficients, and collecting them into a distribution which is then used for the analysis.
 
@@ -161,11 +161,11 @@ matlist country`i', names(row)
 }
 ```
 
-![Table 3: Pre - Post expansion RMSPE ratio.](https://github.com/cvas91/CannabisLegalization/blob/main/Screenshot%202023-05-13%20194349.png)
+![Table 3: Pre - Post expansion RMSPE ratio.](https://github.com/cvas91/CannabisLegalization/blob/main/Figures/Screenshot%202023-05-13%20194349.png)
 
 The placebo gaps across 18 control countries and Uruguay are illustrated below, assuming they were exposed to the same legalization of cannabis in 2013. Agreeing that there are no meaningful differences in the reported prevalence of cannabis use disorders post-legalization in Uruguay compared to the estimates from placebo tests, it could be claimed that the legalization in Uruguay had no significant effect according to this test.
 
-![Figure 4: Gaps for the relevant placebos and Uruguay](https://github.com/cvas91/CannabisLegalization/blob/main/Figure4.jpg)
+![Figure 4: Gaps for the relevant placebos and Uruguay](https://github.com/cvas91/CannabisLegalization/blob/main/Figures/Figure4.jpg)
 
 ## Conclusions
 
