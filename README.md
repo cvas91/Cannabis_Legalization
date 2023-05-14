@@ -184,3 +184,5 @@ This study found that legalizing cannabis in Uruguay was not associated with an 
 ### Licence and Acknowledgements
 
 To construct the SCM for this paper, the *synth* package in Stata developed by [Abadie et al. (2011)](#References) was implemented following the guidelines of [Cunningham (2021)](#References).
+
+For further analysis and discussion, the full printed version of this project is available upon request.
